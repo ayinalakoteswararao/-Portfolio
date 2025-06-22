@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Message Sent</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .thanks-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            position: relative;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .thanks-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(129, 140, 248, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .thanks-card {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .thanks-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s ease-out 0.3s both;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .thanks-icon i {
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .thanks-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            animation: fadeIn 0.5s ease-out 0.4s both;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .thanks-message {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #a5b4fc;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeIn 0.5s ease-out 0.5s both;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease-out 0.6s both;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            background: linear-gradient(45deg, #4338ca, #4f46e5);
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            animation: checkmark 0.8s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 50%;
+            box-sizing: content-box;
+            border: 4px solid #6366f1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .check-icon::before {
+            top: 43px;
+            left: 17px;
+            transform: rotate(45deg);
+            width: 20px;
+            animation: checkmark-check 0.3s ease-out 0.8s forwards;
+        }
+
+        .check-icon::after {
+            top: 37px;
+            left: 28px;
+            transform: rotate(-45deg);
+            width: 40px;
+            animation: checkmark-check 0.3s ease-out 1s forwards;
+        }
+
+        .check-icon::before,
+        .check-icon::after {
+            content: '';
+            height: 4px;
+            background-color: #6366f1;
+            position: absolute;
+            opacity: 0;
+            box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes checkmark-check {
+            0% {
+                opacity: 0;
+                transform-origin: left top;
+                transform: scaleX(0);
+            }
+            100% {
+                opacity: 1;
+                transform-origin: left top;
+                transform: scaleX(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thanks-card {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .thanks-title {
+                font-size: 2rem;
+            }
+
+            .thanks-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thanks-container">
+        <div class="thanks-card">
+            <div class="success-checkmark">
+                <div class="check-icon"></div>
+            </div>
+            <div class="thanks-icon">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+            <h1 class="thanks-title">Thank You!</h1>
+            <p class="thanks-message">Your message has been successfully sent. I'll get back to you as soon as possible.</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </div>
+</body>
+</html>

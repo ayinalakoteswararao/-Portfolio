@@ -251,10 +251,11 @@ const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
 const textArray = [
-    "Full Stack Developer",
-    "AI & ML Engineer",
+    "AI Engineer",
+    "Software Developer",
+    "AI ML Engineer ",
+    "Full Stack Developer ",
     "Web Developer",
-    "Problem Solver"
 ];
 const typingDelay = 100;
 const erasingDelay = 50;
